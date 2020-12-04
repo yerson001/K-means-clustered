@@ -15,3 +15,7 @@
 ## EN Y = data+(rand()%Altura)
 ## hacemos clustered para 100 grupos
 ![test para la cola](IMG/005.png)
+
+~~~
+Ejecutar: g++ kmean.cpp -lsfml-graphics -lsfml-window -lsfml-system
+~~~
