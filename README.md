@@ -4,7 +4,7 @@
 ## [datos]:https://data.cityofnewyork.us/Transportation/2015-Yellow-Taxi-Trip-Data/ba8s-jw6u
 
 ![test para la cola](IMG/001.png)
-## los datos estan fuera del rango de nuestra buffer
+## los datos estan fuera del rango del buffer
 ![test para la cola](IMG/002.png)
 ## multiplicamos por -1 en X para que esta en nuestro rango  pero en Y esta en 40,***
 ![test para la cola](IMG/003.png)
