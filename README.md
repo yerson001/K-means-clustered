@@ -1,6 +1,8 @@
 # k-means-Clustered
 ## leer los datos hasta la mitad
-[DATA]:https://data.cityofnewyork.us/Transportation/2015-Yellow-Taxi-Trip-Data/ba8s-jw6u
+[datos]:https://data.cityofnewyork.us/Transportation/2015-Yellow-Taxi-Trip-Data/ba8s-jw6u
+## [datos]:https://data.cityofnewyork.us/Transportation/2015-Yellow-Taxi-Trip-Data/ba8s-jw6u
+
 ![test para la cola](IMG/001.png)
 ## los datos estan fuera del rango de nuestra buffer
 ![test para la cola](IMG/002.png)
