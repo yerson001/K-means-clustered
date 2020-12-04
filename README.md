@@ -22,3 +22,5 @@ COMPILAR: g++ kmean.cpp -lsfml-graphics -lsfml-window -lsfml-system
 ~~~
 EJECUTAR: ./a.out
 ~~~
+con n = 30001703
+![test para la cola](IMG/006.png)
