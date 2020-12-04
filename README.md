@@ -17,5 +17,8 @@
 ![test para la cola](IMG/005.png)
 
 ~~~
-Ejecutar: g++ kmean.cpp -lsfml-graphics -lsfml-window -lsfml-system
+COMPILAR: g++ kmean.cpp -lsfml-graphics -lsfml-window -lsfml-system
+~~~
+~~~
+EJECUTAR: ./a.out
 ~~~
