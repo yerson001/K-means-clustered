@@ -12,6 +12,7 @@ using namespace std;
 using namespace sf;
 #define Ancho 1000
 #define Largo 1000
+
 class Clusters : public Drawable
 {
 
@@ -36,7 +37,7 @@ public:
 			w.draw(clusters[i], states);
 	};
 
-	void adjust_clusters(std::vector<sf::CircleShape> &points)
+	void Init(std::vector<sf::CircleShape> &points)
 	{
 		std::vector<std::vector<sf::CircleShape *> *> elems;
 		for (int i = 0; i < cnum; i++)
@@ -46,33 +47,29 @@ public:
 
 		if (!clusters_stable)
 		{
-
-			//Nearest cluster for a point
 			for (unsigned int p = 0; p < points.size(); p++)
 			{
 				float distance = 999999;
-				int nearest_cluster = 0;
+				int aprox = 0;
 
 				//std::cout << points[p].getPosition().x << " " << points[p].getPosition().y << " ";
 				for (int c = 0; c < cnum; c++)
 				{
 
-					float c_distance = sqrt(pow(clusters[c].getPosition().x - points[p].getPosition().x, 2) + pow(clusters[c].getPosition().y - points[p].getPosition().y, 2));
-					//std::cout << c_distance << std::endl;
-					if (c_distance < distance)
+					float distancia = sqrt(pow(clusters[c].getPosition().x - points[p].getPosition().x, 2) + pow(clusters[c].getPosition().y - points[p].getPosition().y, 2));
+					//std::cout << distancia << std::endl;
+					if (distancia < distance)
 					{
-						distance = c_distance;
-						nearest_cluster = c;
+						distance = distancia;
+						aprox = c;
 					};
 				};
-				elems[nearest_cluster]->push_back(&points[p]);
+				elems[aprox]->push_back(&points[p]);
 			};
 
-			bool stable_iteration = true;
-			//color points based on the color of the assigned cluster and move the cluster to its new position
+			bool It = true;
 			for (int c = 0; c < cnum; c++)
 			{
-
 				sf::Vector2f newpos(0.f, 0.f);
 
 				for (unsigned int p = 0; p < elems[c]->size(); p++)
@@ -84,10 +81,10 @@ public:
 
 				newpos /= (float)elems[c]->size();
 
-				if (!(stable_iteration = stable_iteration && (clusters[c].getPosition() == newpos)))
+				if (!(It = It && (clusters[c].getPosition() == newpos)))
 					clusters[c].setPosition(newpos);
 			};
-			clusters_stable = stable_iteration;
+			clusters_stable = It;
 		};
 		//while(elems.size()!=0) elems.pop_back();
 		/*for (int i = 0; i < elems.size(); i++)
@@ -96,7 +93,7 @@ public:
 		*/
 	};
 
-	void reset(int cluster_num)
+	void recet_data(int cluster_num)
 	{
 		clusters_stable = false;
 
@@ -163,7 +160,7 @@ int main(int argc, char **argv)
 	while(ip.good() && start<numpoint)
 	{
 		getline(ip,A,',');getline(ip,B,',');getline(ip,C,',');
-                getline(ip,D,',');getline(ip,E,',');getline(ip,F,',');
+        getline(ip,D,',');getline(ip,E,',');getline(ip,F,',');
 		getline(ip,G,',');getline(ip,H,',');getline(ip,I,',');
 		getline(ip,J,',');getline(ip,K,',');getline(ip,L,',');
 		getline(ip,M,',');getline(ip,N,',');getline(ip,O,',');
@@ -201,10 +198,10 @@ int main(int argc, char **argv)
 		if (clu.clustersStable())
 		{
 			//std::cout << numc << "\n";
-			clu.reset(numc);
+			clu.recet_data(numc);
 		}
 
-		clu.adjust_clusters(points);
+		clu.Init(points);
 
 		for (unsigned int i = 0; i < points.size(); i++)
 		{
