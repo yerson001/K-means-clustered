@@ -10,7 +10,7 @@
 ![test para la cola](IMG/003.png)
 ## Otra prueba aumentando los grupos
 ![test para la cola](IMG/004.png)
-## Ya que os datos no varian mucho hacemos la siguiente operacion
+## Ya que los datos no varian mucho hacemos la siguiente operacion
 ## En X = (-1)*data+(rand()%Ancho)
 ## EN Y = data+(rand()%Altura)
 ## hacemos clustered para 100 grupos
